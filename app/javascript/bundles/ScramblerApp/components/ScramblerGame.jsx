@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const HelloWorld = ({ name, updateName }) => (
+const ScramblerGame = ({ name, updateName }) => (
   <div>
     <h3>
-      Hello, {name}!
+      Scrambler
     </h3>
     <hr />
+    <h4>Word: {name}</h4>
     <form >
       <label htmlFor="name">
-        Say hello to:
+        Guess the word:
       </label>
       <input
         id="name"
@@ -21,9 +22,9 @@ const HelloWorld = ({ name, updateName }) => (
   </div>
 );
 
-HelloWorld.propTypes = {
+ScramblerGame.propTypes = {
   name: PropTypes.string.isRequired,
   updateName: PropTypes.func.isRequired,
 };
 
-export default HelloWorld;
+export default ScramblerGame;
