@@ -7,6 +7,11 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use postgres for all that awesomeness
 gem 'pg'
+# better migrations with rein
+gem 'rein'
+
+gem 'graphql'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -65,3 +70,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'react_on_rails', '11.2.1'         # prefer exact gem version to match npm version
 gem 'mini_racer', platforms: :ruby
+gem 'graphiql-rails', group: :development

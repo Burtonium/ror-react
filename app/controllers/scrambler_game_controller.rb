@@ -4,6 +4,7 @@ class ScramblerGameController < ApplicationController
   layout "scrambler_game"
 
   def index
-    @scrambler_game_props = { name: "Stranger" }
+    word = Word.random()
+    @scrambler_game_props = { word: word.first.word }
   end
 end
