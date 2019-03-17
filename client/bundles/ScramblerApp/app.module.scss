@@ -1,0 +1,14 @@
+.app {
+  text-align: center;
+}
+
+.shuffler {
+  display: flex;
+  justify-content: space-around;
+  max-width: 560px;
+  margin: 0 auto;
+
+  & .card {
+    flex-basis: 30px;
+  }
+}

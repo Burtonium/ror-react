@@ -1,9 +1,9 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { compose } from 'redux';
-import { Query } from 'react-apollo';
 import { connect } from 'react-redux';
-
+import { Button } from 'reactstrap';
+import WordShuffle from '../components/WordShuffle';
 
 const fetchRandomWordQuery = gql`
   {
@@ -15,39 +15,49 @@ const fetchRandomWordQuery = gql`
   }
 `;
 
-
 class Game extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      guess: '',
+    }
+  }
+
+  handleGuess() {
+    this.setState({ guess: 'suh' });
+  }
+
+  handleFetchNewWord() {
+
+  }
+
   render() {
-    return (
-      <Query query={fetchRandomWordQuery}>
-        {({ data, error, loading, refetch }) => {
-          if (loading) return 'Loading...';
-          if (error) return `Error! ${error.message}`;
-          const { word } = data.randomWord[0];
+    const { guess } = this.state;
           
-          return (
-            <div>
-              <hr />
-              <h4>Word: {word}</h4>
-              <form >
-                <label htmlFor="name">
-                  Guess the word:
-                </label>
-                &nbsp;
-                <input
-                  id="name"
-                  type="text"
-                  value={this.guess}
-                />
-                <button onClick={(e) => {  refetch(); e.preventDefault(); }}>
-                  New word
-                </button>
-              </form>
-            </div>
-          );
-        }}
-      </Query>
+    return (
+      <div>
+        <WordShuffle word={word} />
+        <div className="row pl-3 pr-3 mt-4">
+          <div className="col-lg-2 offset-lg-5 col-md-4 offset-md-4 col-sm-6 offset-sm-3">
+            <input
+              className="form-control"
+              placeholder="Guess the word..."
+              id="name"
+              type="text"
+              value={guess}
+            />
+            <h3>Current Guess: {this.props.guess}</h3>
+            <Button className="mt-4" color="primary" onClick={() => this.handleGuess()}>
+              Guess
+            </Button>
+          </div>
+        </div>
+
+      </div>
     );
+
+    
   }
 }
 
