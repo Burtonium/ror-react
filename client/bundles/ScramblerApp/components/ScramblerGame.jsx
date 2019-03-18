@@ -45,7 +45,7 @@ class Game extends React.Component {
   }
 
   updateGuess({ target }) {
-    this.setState({ guess: target.value, correct: [], incorrect: [] });
+    this.setState({ guess: target.value.toLowerCase(), correct: [], incorrect: [] });
   }
 
   handleGuess() {
